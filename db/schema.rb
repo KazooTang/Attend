@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708090759) do
+ActiveRecord::Schema.define(version: 20150708130406) do
 
   create_table "showsups", force: :cascade do |t|
-    t.datetime "starts_at"
+    t.date     "starts_at"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

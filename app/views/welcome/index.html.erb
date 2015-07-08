@@ -7,12 +7,9 @@
 </p>
 <%= month_calendar table: {class: 'table'}, events: @showsup do |date, showsup| %>
   <% if user_signed_in? %>
-    <%= link_to date, showsups_path(date: date, user: current_user), method: :post %> 
+    <%= link_to date, showsups_path(date: date, user: current_user, showsup: showsup), method: :post %> 
   <% else %>
     <%= date %>
   <% end %>
-  <br>
-  <% showsup.each do |s| %>
-    <%= image_tag s.user.image %>
-  <% end %>
+  <%= render 'day', showsup: showsup, date: date %>
 <% end %>
