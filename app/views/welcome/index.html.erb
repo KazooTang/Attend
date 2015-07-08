@@ -1,11 +1,18 @@
-<h1> meow~~ </h1>
 <p>
 <% if user_signed_in? %>
-  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-default' %>
 <% else %>
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: 'btn btn-default' %>
 <% end %>
 </p>
-<%= month_calendar do |date| %>
-  <%= date %>
+<%= month_calendar table: {class: 'table'}, events: @showsup do |date, showsup| %>
+  <% if user_signed_in? %>
+    <%= link_to date, showsups_path(date: date, user: current_user), method: :post %> 
+  <% else %>
+    <%= date %>
+  <% end %>
+  <br>
+  <% showsup.each do |s| %>
+    <%= image_tag s.user.image %>
+  <% end %>
 <% end %>

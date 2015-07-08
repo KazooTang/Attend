@@ -8,9 +8,11 @@
 </head>
 <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-<%= yield %>
+  <%= render 'navbar' %>
+  <div class='container'>
+    <%= render 'flash_message' %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
