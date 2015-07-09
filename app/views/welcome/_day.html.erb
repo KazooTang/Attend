@@ -1,5 +1,18 @@
 <div id=<%= date %>>
-<% showsup.each do |s| %>
-  <%= link_to image_tag(s.user.image, class: 'hid'), showsup_path(s.id), method: :delete %>
-<% end %>
+  <% if user_signed_in? %>
+    <% s = Showsup.where(user_id: current_user).where(starts_at: date) %>
+    <% if s.empty? %>
+      <%= link_to date, showsups_path(date: date, user: current_user), method: :post, remote: true %> 
+    <% else %>
+      <%= link_to date, showsup_path(s[0].id, date: date), method: :delete, remote: true %>
+    <% end %>
+  <% else %>
+    <%= date %>
+  <% end %>
+
+  <div>
+    <% showsup.each do |s| %>
+      <%= image_tag s.user.image, class: 'hid' %>
+    <% end %>
+  </div>
 </div>

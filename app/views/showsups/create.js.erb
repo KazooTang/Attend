@@ -1,5 +1,1 @@
-/*
-alert('<%= @s %>');
-$("#<%= @date %>").html('meow');
-//('<%#= escape_javascript(render 'welcome/day', showsup: @s, date: @date ) %>');
-*/
+$("#<%= @date %>").html('<%= escape_javascript(render 'welcome/day', date: @date, showsup: @showsup) %>');

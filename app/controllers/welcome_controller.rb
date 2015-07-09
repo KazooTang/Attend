@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @showsup = Showsup.all
+    @showsups = Showsup.all
   end 
 end
