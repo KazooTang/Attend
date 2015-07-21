@@ -34,10 +34,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'omniauth-facebook'
 
+# settings
+gem 'settingslogic'
+
 gem "simple_calendar", "~> 1.1.0"
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '>= 3.2'
+
+gem 'awesome_print', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

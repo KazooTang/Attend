@@ -1,0 +1,8 @@
+<%= calendar number_of_days: 4, events: @events do |date, event| %>
+  <%= date %>
+  <% event.each do |e| %>
+    <% if e.starts_at < date %>
+      <%= e.name %>
+    <% end %>
+  <% end %>
+<% end %>

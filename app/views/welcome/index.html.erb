@@ -5,6 +5,13 @@
   <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: 'btn btn-default' %>
 <% end %>
 </p>
-<%= month_calendar table: {class: 'table'}, events: @showsups do |date, showsup| %>
+<%= month_calendar table: {class: 'table'}, events: @showsups, @events do |date, showsup, events| %>
   <%= render 'welcome/day', date: date, showsup: showsup %>
+<% end %>
+
+<% @user.each do |u| %>
+  <div class='userHead'>
+    <%= image_tag u.image, alt: u.name, class: 'hid' %>
+    <%= u.name %>
+  </div>
 <% end %>
